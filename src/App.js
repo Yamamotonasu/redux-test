@@ -3,21 +3,12 @@ import React, { Component } from 'react';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hello, world!</h1>
-      </div>
+      <React.Fragment>
+        <label htmlFor="bar">bar</label>
+        <input type="text" onChange={() => { console.log("I am clicked.") }} />
+      </React.Fragment>
     );
   }
 }
-
-// class App extends Component {
-//   render() {
-//     return React.createElement(
-//       "div",
-//       null,
-//       "hello, world!!"
-//     )
-//   }
-// }
 
 export default App;
