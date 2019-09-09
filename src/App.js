@@ -1,33 +1,41 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 
+// functional component
 const App = () => {
-  const profiles = [
-    { name: "taro", age: 10 },
-    { name: "Hanako", age: 5 },
-    { name: "NoName", age: 12 }
-  ]
-  return (
-    <div>
-    {
-      profiles.map((profile, index) => {
-        return <User name={profile.name} age={profile.age} key={index}/>
-      })
-    }
-    </div>
-  )
+  return <Counter></Counter>
 }
 
-const User = (props) => {
-  return <div>Hi! I am {props.name} and {props.age} years old.</div>
-}
+// stateを使う時はclassを使う？
+class Counter extends Component {
+  // define initializer
+  constructor(props) {
+    super(props)
+    console.log(this.state)
+    this.state = { count: 0 }
+  }
 
-// define check prop types
-User.propTypes = {
-  // check string
-  name: PropTypes.string,
-  // check number and age is requireded
-  age: PropTypes.number.isRequired
+  // define plus button for increment state count +1
+  handlePlusButton = () => {
+    this.setState({ count: this.state.count + 1 })
+  }
+
+  handleMinusButton = () => {
+    this.setState({ count: this.state.count - 1 })
+  }
+
+  
+
+  render() {
+    console.log(this.state.count)
+    console.log("render called")
+    return (
+      <React.Fragment>
+        <div>count: { this.state.count }</div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </React.Fragment>
+    )
+  }
 }
 
 export default App;
