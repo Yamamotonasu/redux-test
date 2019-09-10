@@ -8,8 +8,10 @@ export default (state = initialState, action) => {
   // actionのtypeによって処理を分岐させる
   switch(action.type) {
     case INCREMENT:
+      console.log("call reducers increment")
       return { value: state.value + 1 }
     case DECREMENT:
+      console.log("call reducer decrement")
       return { value: state.value - 1 }
     default:
     // action typeが取得出来ない時は何もせずに返す
