@@ -1,4 +1,4 @@
-import { INCREMENT, DECREMENET } from '../actions'
+import { INCREMENT, DECREMENT } from '../actions'
 
 // 初期値を設定する
 const initialState = { value: 0 }
@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
   switch(action.type) {
     case INCREMENT:
       return { value: state.value + 1 }
-    case DECREMENET:
+    case DECREMENT:
       return { value: state.value - 1 }
     default:
     // action typeが取得出来ない時は何もせずに返す
