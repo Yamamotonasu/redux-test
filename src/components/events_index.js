@@ -4,7 +4,7 @@ import { increment, decrement } from '../actions'
 import { dispatch } from 'rxjs/internal/observable/pairs';
 
 // stateを使う時はclassを使う？
-class App extends Component {
+class EventsIndex extends Component {
   render() {
     const props = this.props
     return (
@@ -29,4 +29,4 @@ const mapStateToProps = state => (
 // こっちでもかけるよ
 const mapDispatchToProps = ({ increment, decrement })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)

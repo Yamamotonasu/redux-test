@@ -4,7 +4,7 @@ import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import './index.css';
 import reducer from './reducers/index'
-import App from './components/App';
+import EventsIndex from './components/events_index';
 import * as serviceWorker from './serviceWorker';
 
 // シングルトンとして定義する(storeにreducerを渡す)
@@ -14,7 +14,7 @@ const store = createStore(reducer)
 //providerにstoreという属性にstoreを渡してあげる事によってstoreを参照してrenderする事が出来る?
 ReactDOM.render(
   <Provider store={store}>
-    <App  />
+    <EventsIndex  />
   </Provider>,
   document.getElementById('root')
 );
