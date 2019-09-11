@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import { increment, decrement } from '../actions'
+import { readEvents } from '../actions/events'
 import { dispatch } from 'rxjs/internal/observable/pairs';
 
 // stateを使う時はclassを使う？
 class EventsIndex extends Component {
+  componentDidMount() {
+    console.log("hi!!")
+    // api events fo actions
+    this.props.readEvents()
+  }
   render() {
     const props = this.props
     return (
@@ -18,7 +23,7 @@ class EventsIndex extends Component {
 }
 // storeからこのcomponentで必要なstateで必要なstateを取り出す
 const mapStateToProps = state => (
-  { value: state.count.value }
+  { }
 )
 // あるactionが生じた時にreducerにある関数を実行させるのがdispatch関数の役割になる
 // const mapDispatchToProps = dispatch => ({
@@ -27,6 +32,6 @@ const mapStateToProps = state => (
 // })
 
 // こっちでもかけるよ
-const mapDispatchToProps = ({ increment, decrement })
+const mapDispatchToProps = ({ readEvents })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsIndex)

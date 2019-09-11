@@ -1,18 +1,15 @@
 import { INCREMENT, DECREMENT } from '../actions'
+import { READ_EVENTS } from '../actions/events';
 
 // 初期値を設定する
 const initialState = { value: 0 }
 
 // 関数としてreducerを定義する(引数はstateとactionの2つを持つ)
-export default (state = initialState, action) => {
+export default (state = {}, action) => {
   // actionのtypeによって処理を分岐させる
   switch(action.type) {
-    case INCREMENT:
-      console.log("call reducers increment")
-      return { value: state.value + 1 }
-    case DECREMENT:
-      console.log("call reducer decrement")
-      return { value: state.value - 1 }
+    case READ_EVENTS:
+      return state
     default:
     // action typeが取得出来ない時は何もせずに返す
       return state
