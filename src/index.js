@@ -9,6 +9,7 @@ import './index.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import reducer from './reducers'
 import EventsIndex from './components/events_index';
+import EventsNew from './components/events_new'
 import * as serviceWorker from './serviceWorker';
 
 // シングルトンとして定義する(storeにreducerを渡す)
@@ -22,9 +23,7 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        {/*
         <Route exact path="/events/new" component={EventsNew} />
-        */}
         <Route exact path="/" component={EventsIndex} />
       </Switch>
     </BrowserRouter>
