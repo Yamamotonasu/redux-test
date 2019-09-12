@@ -4,8 +4,10 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux'
 import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
-import './index.css';
-import reducer from './reducers/index'
+
+import './index.css'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import reducer from './reducers'
 import EventsIndex from './components/events_index';
 import * as serviceWorker from './serviceWorker';
 
@@ -18,7 +20,14 @@ const store = createStore(reducer, applyMiddleware(thunk))
 //providerにstoreという属性にstoreを渡してあげる事によってstoreを参照してrenderする事が出来る?
 ReactDOM.render(
   <Provider store={store}>
-    <EventsIndex  />
+    <BrowserRouter>
+      <Switch>
+        {/*
+        <Route exact path="/events/new" component={EventsNew} />
+        */}
+        <Route exact path="/" component={EventsIndex} />
+      </Switch>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root')
 );
